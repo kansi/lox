@@ -6,6 +6,11 @@ FLOAT          = [-+]?[0-9]+\.[0-9]+
 INVLAID_FLOAT  = [-+]?(\.[0-9]+|[0-9]+\.)
 WHITESPACE     = [\t\r\s\n]
 IDENTIFIER     = [a-z]+[a-zA-Z0-9_]*
+C_LT           = <
+C_GT           = >
+C_LEQ          = <=
+C_GEQ          = >=
+C_NEQ          = !=
 
 Rules.
 
@@ -21,6 +26,14 @@ Rules.
 \;          : {token, {semicolon, TokenLine}}.
 \/          : {token, {slash, TokenLine}}.
 \*          : {token, {star, TokenLine}}.
+!           : {token, {bang, TokenLine}}.
+=           : {token, {equal, TokenLine}}.
+
+{C_LEQ}         : {token, {comparator_leq, TokenLine}}.
+{C_GEQ}         : {token, {comparator_geq, TokenLine}}.
+{C_NEQ}         : {token, {comparator_neq, TokenLine}}.
+{C_LT}          : {token, {comparator_lt, TokenLine}}.
+{C_GT}          : {token, {comparator_gt, TokenLine}}.
 
 {WHITESPACE}+ : skip_token.
 {IDENTIFIER}  : {token, {identifier, TokenLine, list_to_binary(TokenChars)}}.

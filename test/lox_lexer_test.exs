@@ -58,4 +58,15 @@ defmodule LoxTest.LoxLexer do
       assert {:ok, [{:identifier, 1, "valid_token"}], 1} == :lox_lexer.string('valid_token')
     end
   end
+
+  describe "[token: COMPARATOR] :lox_lexer" do
+    test "return valid comparators" do
+      assert {:ok, [{:comparator_lt, 1}], 1} == :lox_lexer.string('<')
+      assert {:ok, [{:comparator_gt, 1}], 1} == :lox_lexer.string('>')
+      assert {:ok, [{:bang, 1}], 1} == :lox_lexer.string('!')
+      assert {:ok, [{:equal, 1}], 1} == :lox_lexer.string('=')
+      assert {:ok, [{:comparator_leq, 1}], 1} == :lox_lexer.string('<=')
+      assert {:ok, [{:comparator_geq, 1}], 1} == :lox_lexer.string('>=')
+    end
+  end
 end
