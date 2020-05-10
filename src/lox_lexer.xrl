@@ -29,6 +29,25 @@ Rules.
 !           : {token, {bang, TokenLine}}.
 =           : {token, {equal, TokenLine}}.
 
+%% reserved words
+and         : {token, {boolean_and, TokenLine}}.
+or          : {token, {boolean_or, TokenLine}}.
+nil         : {token, {nil, TokenLine}}.
+class       : {token, {class, TokenLine}}.
+if          : {token, {cond_if, TokenLine}}.
+else        : {token, {cond_else, TokenLine}}.
+true        : {token, {true, TokenLine}}.
+false       : {token, {false, TokenLine}}.
+return      : {token, {return, TokenLine}}.
+super       : {token, {super, TokenLine}}.
+this        : {token, {this, TokenLine}}.
+var         : {token, {var, TokenLine}}.
+while       : {token, {loop_while, TokenLine}}.
+for         : {token, {loop_for, TokenLine}}.
+fun         : {token, {named_fun, TokenLine}}.
+print       : {token, {reserved_fun_print, TokenLine}}.
+
+
 {C_LEQ}         : {token, {comparator_leq, TokenLine}}.
 {C_GEQ}         : {token, {comparator_geq, TokenLine}}.
 {C_NEQ}         : {token, {comparator_neq, TokenLine}}.
